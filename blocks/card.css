@@ -1,0 +1,37 @@
+.card__content {
+  list-style-type: none;
+  width: 413px;
+  height: 445px;
+  padding: 0;
+}
+
+.card__image {
+  width: 413px;
+  height: 413px;
+  margin-bottom: 12px;
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 8px;
+}
+
+.card__details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__description {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.card__like-btn {
+  padding: 0;
+  border: none;
+  background-color: #fcf5e5;
+  opacity: 40%;
+}
+
+.card__like-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}

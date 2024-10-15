@@ -1,0 +1,15 @@
+.gallery {
+  padding: 20px 0 40px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.gallery__cards {
+  width: 100%;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px 20px;
+  padding: 0;
+  margin: 0;
+}
