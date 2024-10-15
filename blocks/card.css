@@ -1,6 +1,6 @@
 .card__content {
   list-style-type: none;
-  width: 413px;
+  max-width: 413px;
   height: 445px;
   padding: 0;
 }
@@ -11,6 +11,7 @@
   margin-bottom: 12px;
   background-color: rgba(217, 217, 217, 1);
   border-radius: 8px;
+  display: block;
 }
 
 .card__details {
@@ -27,7 +28,7 @@
 .card__like-btn {
   padding: 0;
   border: none;
-  background-color: #fcf5e5;
+  background-color: transparent;
   opacity: 40%;
 }
 

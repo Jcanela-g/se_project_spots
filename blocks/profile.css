@@ -42,7 +42,7 @@
   border-radius: 90px;
   opacity: 70%;
   border: none;
-  background-color: #fcf5e5;
+  background-color: transparent;
 }
 
 .profile__edit-btn:hover {
