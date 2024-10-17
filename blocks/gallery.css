@@ -13,3 +13,14 @@
   padding: 0;
   margin: 0;
 }
+
+@media screen and (max-width: 620px) {
+  .gallery {
+    padding: 20px 0;
+  }
+
+  .gallery__cards {
+    grid-template-columns: repeat(auto-fit, 288px);
+    row-gap: 20px;
+  }
+}

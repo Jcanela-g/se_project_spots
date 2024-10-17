@@ -24,6 +24,10 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 360px;
 }
 
 .card__like-btn {
@@ -36,4 +40,26 @@
 .card__like-btn:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+@media screen and (max-width: 620px) {
+  .card__content {
+    max-width: 288px;
+    height: 318px;
+  }
+
+  .card__image {
+    width: 288px;
+    height: 288px;
+  }
+
+  .card__description {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 250px;
+  }
+  .card__like-btn {
+    width: 20px;
+    height: 18px;
+  }
 }
