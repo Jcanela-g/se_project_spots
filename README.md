@@ -15,7 +15,7 @@ This project is made useing HTML and CSS base on designer details on FIGMA.
 - Responsive design
 - Positioning
 - Flat BEM file structure
-- Media quaries
+- Media queries
 - Hidden text overflow
 
 ## My thoughts
@@ -23,3 +23,5 @@ This project is made useing HTML and CSS base on designer details on FIGMA.
 This project was very enjoying and a bit stressful at the same time. I really liked that it was through FIGMA so that it gives that real world feel of how you would get a project.
 
 ## Github pages link
+
+-[Deployment Link](https://jcanela-g.github.io/se_project_spots/)
