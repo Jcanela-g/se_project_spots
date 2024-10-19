@@ -25,3 +25,7 @@ This project was very enjoying and a bit stressful at the same time. I really li
 ## Github pages link
 
 -[Deployment Link](https://jcanela-g.github.io/se_project_spots/)
+
+## Video link
+
+- https://drive.google.com/file/d/11OyaiIent-GqzK3xVC0ruQ9y2ngCuJLh/view?usp=sharing
