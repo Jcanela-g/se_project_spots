@@ -19,6 +19,7 @@
 
 .profile__name {
   margin: 0 0 12px;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
@@ -32,6 +33,7 @@
 
 .profile__description {
   margin: 0;
+  color: rgba(33, 33, 33, 0.7);
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
@@ -49,6 +51,7 @@
   margin: auto 0 0;
   width: 107.34px;
   height: 16px;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
