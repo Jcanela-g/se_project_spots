@@ -38,6 +38,24 @@ const editDescriptionInput = editProfile.querySelector(
 );
 const editProfileForm = editProfile.querySelector(".modal__form");
 
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".gallery__cards");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardNameElement = cardElement.querySelector(".card__description");
+  const cardImageElement = cardElement.querySelector(".card__image");
+
+  cardNameElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+
+  return cardElement;
+}
+
 function openModal() {
   editNameInput.value = profileName.textContent;
   editDescriptionInput.value = profileDescription.textContent;
@@ -56,3 +74,8 @@ function profileFormSubmit(evt) {
 profileEditButton.addEventListener("click", openModal);
 modalCloseButton.addEventListener("click", closeModal);
 editProfileForm.addEventListener("submit", profileFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}
