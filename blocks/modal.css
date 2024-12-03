@@ -25,6 +25,7 @@
   max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
+  width: 100%;
 }
 
 .modal__container {
@@ -47,7 +48,8 @@
 .modal__caption {
   margin: 8px 0 0;
   padding: 4px 8px;
-  width: 132px;
+  width: fit-content;
+  max-width: 100%;
   border-radius: 8px;
   background: rgba(33, 33, 33, 1);
   color: rgba(255, 255, 255, 1);
@@ -179,5 +181,20 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__caption {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .modal__close-btn_preview {
+    top: -28px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .modal__image {
+    width: 288px;
   }
 }
