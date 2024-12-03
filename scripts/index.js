@@ -26,12 +26,15 @@ const initialCards = [
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
+const newPostButton = document.querySelector(".profile__new-btn");
 
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editProfile = document.querySelector("#edit-modal");
-const modalCloseButton = editProfile.querySelector(".modal__close-btn");
+const newPost = document.querySelector("#new-post-modal");
+const editModalCloseButton = editProfile.querySelector(".modal__close-btn");
+const newPostModalCloseButton = newPost.querySelector(".modal__close-btn");
 const editNameInput = editProfile.querySelector("#profile-name-input");
 const editDescriptionInput = editProfile.querySelector(
   "#profile-description-input"
@@ -56,23 +59,38 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function openModal() {
-  editNameInput.value = profileName.textContent;
-  editDescriptionInput.value = profileDescription.textContent;
-  editProfile.classList.add("modal_open");
+function openModal(modal) {
+  modal.classList.add("modal_open");
 }
-function closeModal() {
-  editProfile.classList.remove("modal_open");
+
+function closeModal(modal) {
+  modal.classList.remove("modal_open");
 }
 function handleProfileFormSubmit(evt) {
   profileName.textContent = editNameInput.value;
   profileDescription.textContent = editDescriptionInput.value;
-  closeModal();
+  closeModal(editProfile);
   evt.preventDefault();
 }
 
-profileEditButton.addEventListener("click", openModal);
-modalCloseButton.addEventListener("click", closeModal);
+profileEditButton.addEventListener("click", () => {
+  openModal(editProfile);
+  editNameInput.value = profileName.textContent;
+  editDescriptionInput.value = profileDescription.textContent;
+});
+
+newPostButton.addEventListener("click", () => {
+  openModal(newPost);
+  editNameInput.value = profileName.textContent;
+  editDescriptionInput.value = profileDescription.textContent;
+});
+
+editModalCloseButton.addEventListener("click", () => {
+  closeModal(editProfile);
+});
+newPostModalCloseButton.addEventListener("click", () => {
+  closeModal(newPost);
+});
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
 initialCards.forEach((item) => {
