@@ -54,10 +54,19 @@ function getCardElement(data) {
 
   const cardNameElement = cardElement.querySelector(".card__description");
   const cardImageElement = cardElement.querySelector(".card__image");
+  const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   cardNameElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
+
+  cardLikeBtn.addEventListener("click", () => {
+    cardLikeBtn.classList.toggle("card__like-btn_liked");
+  });
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   return cardElement;
 }
