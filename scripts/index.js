@@ -80,9 +80,6 @@ function getCardElement(data) {
     previewModalCaptionElement.textContent = data.name;
     previewModalImgElement.alt = data.name;
   });
-  previewImgModalCloseButton.addEventListener("click", () => {
-    closeModal(previewImg);
-  });
 
   return cardElement;
 }
@@ -94,6 +91,17 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_open");
 }
+
+// Find all close buttons
+const closeButtons = document.querySelectorAll(".modal__close-btn");
+
+closeButtons.forEach((button) => {
+  // Find the closest popup only once
+  const popup = button.closest(".modal");
+  // Set the listener
+  button.addEventListener("click", () => closeModal(popup));
+});
+
 function handleProfileFormSubmit(evt) {
   profileName.textContent = editNameInput.value;
   profileDescription.textContent = editDescriptionInput.value;
@@ -120,12 +128,6 @@ newPostButton.addEventListener("click", () => {
   openModal(newPost);
 });
 
-editModalCloseButton.addEventListener("click", () => {
-  closeModal(editProfile);
-});
-newPostModalCloseButton.addEventListener("click", () => {
-  closeModal(newPost);
-});
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
 
