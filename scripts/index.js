@@ -107,6 +107,7 @@ function handleNewPostFormSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(newPost);
+  evt.target.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -117,8 +118,6 @@ profileEditButton.addEventListener("click", () => {
 
 newPostButton.addEventListener("click", () => {
   openModal(newPost);
-  editNameInput.value = profileName.textContent;
-  editDescriptionInput.value = profileDescription.textContent;
 });
 
 editModalCloseButton.addEventListener("click", () => {
