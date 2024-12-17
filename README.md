@@ -1,15 +1,18 @@
 # Spots
 
-This project is made useing HTML and CSS base on designer details on FIGMA.
+This project is made useing HTML, CSS, and JavaScript and was base on designer details on FIGMA.
 
 **Figma**
 
-- [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+- [Link to the project on Figma](https://www.figma.com/design/jFtXsDr4XOyebKcgjyXN6W/Sprint-6-Project%3A-Spots?node-id=2-253&t=9xoM5NiK0eS1Zbpn-0)
 
 ## Project features
 
 - Semantic HTML5
 - CSS
+- JavaScript
+- Forms
+- Forms validation
 - Flexbox
 - Grid
 - Responsive design
@@ -21,6 +24,7 @@ This project is made useing HTML and CSS base on designer details on FIGMA.
 ## My thoughts
 
 This project was very enjoying and a bit stressful at the same time. I really liked that it was through FIGMA so that it gives that real world feel of how you would get a project.
+Form validation and submit button function to switch between active and disabled at the appropriate times was challenging. Putting this together was a great learning opportunity.
 
 ## Github pages link
 

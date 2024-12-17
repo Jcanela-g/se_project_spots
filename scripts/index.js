@@ -84,12 +84,29 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const activePopup = document.querySelector(".modal_open");
+    closeModal(activePopup);
+  }
+}
+
+function handleOverlay(evt) {
+  if (evt.target.classList.contains("modal_open")) {
+    closeModal(evt.target);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_open");
+  modal.addEventListener("mousedown", handleOverlay);
+  document.addEventListener("keyup", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_open");
+  modal.removeEventListener("mousedown", handleOverlay);
+  document.removeEventListener("keyup", handleEscape);
 }
 
 // Find all close buttons
@@ -114,6 +131,10 @@ function handleNewPostFormSubmit(evt) {
   const inputValues = { name: captionInput.value, link: imgLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+
+  const buttonElement = evt.target.querySelector(".modal__submit-btn");
+  disableButton(buttonElement, settings);
+
   closeModal(newPost);
   evt.target.reset();
 }
