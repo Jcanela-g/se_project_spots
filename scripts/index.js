@@ -140,9 +140,10 @@ function handleNewPostFormSubmit(evt) {
 }
 
 profileEditButton.addEventListener("click", () => {
-  openModal(editProfile);
   editNameInput.value = profileName.textContent;
   editDescriptionInput.value = profileDescription.textContent;
+  resetValidation(editProfileForm, settings);
+  openModal(editProfile);
 });
 
 newPostButton.addEventListener("click", () => {
