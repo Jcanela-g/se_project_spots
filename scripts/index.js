@@ -1,3 +1,10 @@
+import {
+  resetValidation,
+  enableValidation,
+  disableButton,
+  settings,
+} from "./validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -36,11 +43,6 @@ const newPost = document.querySelector("#new-post-modal");
 const previewImg = document.querySelector("#preview-modal");
 const previewModalImgElement = previewImg.querySelector(".modal__image");
 const previewModalCaptionElement = previewImg.querySelector(".modal__caption");
-
-const editModalCloseButton = editProfile.querySelector(".modal__close-btn");
-const newPostModalCloseButton = newPost.querySelector(".modal__close-btn");
-const previewImgModalCloseButton =
-  previewImg.querySelector(".modal__close-btn");
 
 const editNameInput = editProfile.querySelector("#profile-name-input");
 const editDescriptionInput = editProfile.querySelector(
@@ -119,9 +121,17 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(popup));
 });
 
+function handleSubmitBtn(evt) {
+  const buttonElement = evt.target.querySelector(".modal__submit-btn");
+  disableButton(buttonElement, settings);
+}
+
 function handleProfileFormSubmit(evt) {
   profileName.textContent = editNameInput.value;
   profileDescription.textContent = editDescriptionInput.value;
+
+  handleSubmitBtn(evt);
+
   closeModal(editProfile);
   evt.preventDefault();
 }
@@ -132,8 +142,7 @@ function handleNewPostFormSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
 
-  const buttonElement = evt.target.querySelector(".modal__submit-btn");
-  disableButton(buttonElement, settings);
+  handleSubmitBtn(evt);
 
   closeModal(newPost);
   evt.target.reset();
@@ -157,3 +166,5 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
 });
+
+enableValidation(settings);

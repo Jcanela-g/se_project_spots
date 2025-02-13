@@ -1,0 +1,20 @@
+{
+  "name": "se_project_spots",
+  "version": "1.0.0",
+  "description": "This project is made useing HTML, CSS, and JavaScript and was base on designer details on FIGMA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jcanela-g/se_project_spots.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jcanela-g/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/Jcanela-g/se_project_spots#readme"
+}
