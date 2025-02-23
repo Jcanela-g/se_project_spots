@@ -45,8 +45,8 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
-    cards.forEach((item) => {
-      const cardElement = getCardElement(item);
+    cards.forEach((card) => {
+      const cardElement = getCardElement(card);
       cardsList.prepend(cardElement);
     });
 
@@ -101,8 +101,19 @@ function getCardElement(data) {
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
+
   cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked");
+    const isLiked = cardLikeBtn.classList.contains("card__like-btn_liked");
+
+    api
+      .toggleLikeBtn(data._id, isLiked)
+      .then((updatedCard) => {
+        cardLikeBtn.classList.toggle("card__like-btn_liked");
+      })
+      .catch(console.error);
   });
 
   function handleDeleteCard(cardElement, cardId) {
