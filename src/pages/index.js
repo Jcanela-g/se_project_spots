@@ -59,15 +59,21 @@ api
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const newPostButton = document.querySelector(".profile__new-btn");
 const cancelButton = document.querySelector(".modal__cancel-btn");
+const avatarEditButton = document.querySelector(".profile__avatar-btn");
+// console.log("Avatar Edit Button:", avatarEditButton);
 
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__avatar");
+// console.log("Profile Avatar:", profileAvatar);
 
 const editProfile = document.querySelector("#edit-modal");
 const newPost = document.querySelector("#new-post-modal");
 const confirmDeletion = document.querySelector("#delete-confirm-modal");
 const previewImg = document.querySelector("#preview-modal");
+const avatarModal = document.querySelector("#avatar-modal");
+// console.log("Avatar Modal:", avatarModal);
+
 const previewModalImgElement = previewImg.querySelector(".modal__image");
 const previewModalCaptionElement = previewImg.querySelector(".modal__caption");
 
@@ -77,9 +83,14 @@ const editDescriptionInput = editProfile.querySelector(
 );
 const imgLinkInput = newPost.querySelector("#img-link-input");
 const captionInput = newPost.querySelector("#img-caption-input");
+const avatarLinkInput = avatarModal.querySelector("#avatar-link-input");
+// console.log("Avatar Input:", avatarLinkInput);
+
 const editProfileForm = editProfile.querySelector(".modal__form");
 const newPostForm = newPost.querySelector(".modal__form");
-const deleteForm = confirmDeletion.querySelector("#deleteForm");
+const deleteForm = confirmDeletion.querySelector("#delete-form");
+const avatarForm = avatarModal.querySelector("#avatar-edit");
+// console.log("Avatar Form:", avatarForm);
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".gallery__cards");
@@ -193,6 +204,7 @@ closeButtons.forEach((button) => {
 });
 
 function handleSubmitBtn(evt) {
+  console.log("handleSubmitBtn triggered, evt.target:", evt.target);
   const buttonElement = evt.target.querySelector(".modal__submit-btn");
   disableButton(buttonElement, settings);
 }
@@ -234,6 +246,21 @@ function handleNewPostFormSubmit(evt) {
     .catch(console.error);
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  api
+    .editAvatarInfo({ avatar: avatarLinkInput.value })
+    .then((data) => {
+      profileAvatar.src = data.avatar;
+
+      handleSubmitBtn(evt);
+
+      evt.target.reset();
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
+}
+
 profileEditButton.addEventListener("click", () => {
   editNameInput.value = profileName.textContent;
   editDescriptionInput.value = profileDescription.textContent;
@@ -245,7 +272,15 @@ newPostButton.addEventListener("click", () => {
   openModal(newPost);
 });
 
+avatarEditButton.addEventListener("click", () => {
+  openModal(avatarModal);
+});
+
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 newPostForm.addEventListener("submit", handleNewPostFormSubmit);
+avatarForm.addEventListener("submit", handleAvatarSubmit);
+
+const allForms = document.querySelectorAll(settings.formSelector);
+console.log("All Forms Found for Validation:", allForms);
 
 enableValidation(settings);
