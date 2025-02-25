@@ -83,10 +83,10 @@ const imgLinkInput = newPost.querySelector("#img-link-input");
 const captionInput = newPost.querySelector("#img-caption-input");
 const avatarLinkInput = avatarModal.querySelector("#avatar-link-input");
 
-const editProfileForm = editProfile.querySelector(".modal__form");
-const newPostForm = newPost.querySelector(".modal__form");
-const deleteForm = confirmDeletion.querySelector("#delete-form");
-const avatarForm = avatarModal.querySelector("#avatar-edit");
+const editProfileForm = document.forms["edit-profile-form"];
+const newPostForm = document.forms["new-post-form"];
+const deleteForm = document.forms["delete-form"];
+const avatarForm = document.forms["avatar-edit"];
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".gallery__cards");
